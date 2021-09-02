@@ -1,0 +1,43 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "new_car",
+    "dateExported": "2021-09-02T20:32:12.560Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "containerId": "",
+            "sortNum": 20000,
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.io)"
+                }
+            ],
+            "colId": "e12e1ad4-a038-49d7-b73e-feb047ccd70d",
+            "name": "new_csv",
+            "url": "http://localhost:5000/api/csv/eddy",
+            "method": "POST",
+            "modified": "2021-09-02T20:31:31.974Z",
+            "created": "2021-09-02T20:06:28.048Z",
+            "_id": "80fa8db7-4eea-443a-9801-e74a0d0bab9e",
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "file",
+                        "value": "C:\\Users\\eddym\\Desktop\\newcar.csv"
+                    }
+                ]
+            },
+            "tests": []
+        }
+    ]
+}
