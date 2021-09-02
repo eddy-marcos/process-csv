@@ -1,0 +1,14 @@
+{
+  "name": "process-csv",
+  "version": "1.0.0",
+  "description": "process csv files and import their data into our database",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "csv"
+  ],
+  "author": "Eddy Marcos",
+  "license": "ISC"
+}
