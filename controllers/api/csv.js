@@ -7,7 +7,6 @@ import parseData from '../../helpers/parseData.js';
  export async function parseCsv(req, res) {
     const { params: { providerName = null }, file = {} } = req;
     const { path = null } = file;
-    console.log('provider name :', providerName);
 
     const { isCorrect, errors } = fileCheck({
         providerName,
