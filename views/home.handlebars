@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>process CSV</title>
+</head>
+<body>
+    <h1>How to use this service</h1>
+
+    <h3>Thunder Client (VScode extension)</h3>
+    <ul>
+        <li>use Collections option</li>
+        <li>open thunder-collection file and customize as needed</li>
+        <li>import thunder Client collection from project root</li>
+        <li>make sure you have the test csv file in the correct directory</li>
+        <li>send POST request</li>
+    </ul>
+
+
+    <h3>curl</h3>
+    <p>Example run: 
+        <code>
+            <b>curl -F 'file=@/home/username/src/labs/process-csv/newcar.csv' http://localhost:5000/api/csv/mazda</b>
+        </code>
+    </p>
+    
+    <h3>Postman</h3>
+        <ul>
+            <li>Create a New HTTP Post Request</li>
+            <li>request URL example: http://localhost:5000/api/csv/test</li>
+            <li>Select Body > form-data radio button</li>
+            <li>key: choose file option</li>
+            <li>value: attach your test file</li>
+            <li>click send</li>
+        </ul>
+</body>
+</html>

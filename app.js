@@ -3,6 +3,7 @@ import error from 'http-errors';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import exphbs from 'express-handlebars';
 
 // route
 import csvFileRouter from './routes/csv.js';
@@ -10,10 +11,12 @@ import csvFileRouter from './routes/csv.js';
 // init express app
 var app = express(); 
 
-// view engine setup
-const __dirname = path.resolve();
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// handlebars setup
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+app.get('/', function (req, res) {
+    res.render('home');
+});
 
 // middleware
 app.use(logger('dev'));
