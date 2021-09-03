@@ -7,15 +7,19 @@ git clone https://github.com/eddy-marcos/process-csv.git
 ```
 npm install
 ```
-## 3. Run tests
+## 3. Run the project
+```
+npm start
+```
+## 4. Run tests
 ```
 npm test
 ```
 
-## 4. Use your Favorite API tester
+## 5. Use your Favorite API tester
 I personally used <b>Thunder Client VS Code extension</b> as it's really easy to use without leaving the code editor.
 I created a <b>thunder-collection_new_car.json </b>
-file which is in the project root in case you like to use it testing.
+file which is in the project root in case you like to use it for testing.
 
 you can also use <b>newcar.csv</b> for testing.
 
