@@ -1,4 +1,5 @@
-const carModel = require('../models/car');
+/* eslint-disable no-undef */
+const carModel = require('../models/car'); 
 
 /**
  * Stores a new car into the database.
@@ -9,5 +10,5 @@ module.exports.create = async (car) => {
     if (!car)
         throw new Error('Missing car');
 
-    await carModel.create(car);
-};
+    await carModel.create(car); 
+}; 

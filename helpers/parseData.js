@@ -1,4 +1,4 @@
-import difference from 'lodash';
+import difference from 'lodash'; 
 
     export default function parseData({ csvData, headers, columns }) {
         const requiredColumns = [];

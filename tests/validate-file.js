@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { isEmpty } = require('lodash');
 
 module.exports = data => {

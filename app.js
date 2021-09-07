@@ -1,6 +1,5 @@
 import express from 'express';
 import error from 'http-errors';
-import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import exphbs from 'express-handlebars';
@@ -33,7 +32,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 

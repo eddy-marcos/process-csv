@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const dbHandler = require('./db-handler');
 const carService = require('../services/car');
 const carModel = require('../models/car');
