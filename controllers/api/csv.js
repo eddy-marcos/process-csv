@@ -56,8 +56,6 @@ import carService from '../../services/car.js';
     }
 
     writeFile(newData);
-    await carService.create(newData);
-
     console.log('Final Data', newData);
 
     res.status(200).json({
