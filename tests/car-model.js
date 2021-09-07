@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 /**
  * Car model schema.
@@ -17,4 +17,4 @@ import mongoose from 'mongoose';
     updatedate: { type: Date }
 });
 
-export default mongoose.model('car', carSchema);
+module.exports = mongoose.model('car', carSchema);

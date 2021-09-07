@@ -1,12 +1,12 @@
-import carModel from '../models/car.js'; 
+/* eslint-disable no-undef */
+const carModel = require('./car-model'); 
 
 /**
  * Stores a new car into the database.
  * @param {Object} car car object to create.
  * @throws {Error} If the car is not provided.
  */
-
-export default async function create (car) {
+module.exports.create = async (car) => {
     if (!car)
         throw new Error('Missing car');
 

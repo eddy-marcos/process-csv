@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const dbHandler = require('./db-handler');
-const carService = require('../services/car');
-const carModel = require('../models/car');
+const carService = require('./car-service');
+const carModel = require('./car-model');
 const validateFile = require('./validate-file');
 
 /**
