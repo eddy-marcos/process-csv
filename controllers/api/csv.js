@@ -3,6 +3,7 @@ import writeFile from '../../helpers/writeFile.js';
 import fileCheck from '../../helpers/fileCheck.js';
 import readFile from '../../helpers/readFile.js';
 import parseData from '../../helpers/parseData.js';
+import carService from '../../services/car.js';
 
  export async function parseCsv(req, res) {
     const { params: { providerName = null }, file = {} } = req;
@@ -55,6 +56,8 @@ import parseData from '../../helpers/parseData.js';
     }
 
     writeFile(newData);
+    await carService.create(newData);
+
     console.log('Final Data', newData);
 
     res.status(200).json({
