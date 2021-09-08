@@ -1,20 +1,27 @@
-/* eslint-disable no-undef */
 import mongoose from 'mongoose';
 
 /**
  * Car model schema.
  */
- const carSchema = new mongoose.Schema({
-    uuid: { type: Number },
-    vin: { type: String },
-    make: { type: String },
-    model: { type: String },
-    mileage: { type: Number },
-    year: { type: Number },
-    price: { type: Number },
-    zipcode: { type: Number },
-    createdate: { type: Date },
-    updatedate: { type: Date }
-});
+const uploadSchema = new mongoose.Schema({
+  vehicleData: [{
+    UUID: String,
+    VIN: String,
+    Make: String,
+    Model: String,
+    Mileage: Number,
+    Year: Number,
+    Price: Number,
+    'Zip Code': String,
+    'Create Date': { type: Date, default: Date.now },
+    'Update Date': { type: Date, default: Date.now },
+  }],
+  uploadDate: { type: Date, default: Date.now },
+}, { strict: true, retainKeyOrder: true });
 
-export default mongoose.model('car', carSchema);
+
+const VehicleData = mongoose.model('VehicleData', uploadSchema);
+
+
+export default VehicleData;
+

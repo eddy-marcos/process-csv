@@ -1,10 +1,18 @@
 import isEqual from 'lodash';
+import fs from 'fs';
 import writeFile from '../../helpers/writeFile.js';
 import fileCheck from '../../helpers/fileCheck.js';
 import readFile from '../../helpers/readFile.js';
 import parseData from '../../helpers/parseData.js';
-import carService from '../../services/car.js';
+import mongoose from 'mongoose';
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import VehicleData from '../../models/car.js';
 
+const mongod = new MongoMemoryServer({ instance: { dbName: "uploads" } });
+
+const uri = mongod.getUri();
+
+/* Process CSV, and save to in memory database  */
  export async function parseCsv(req, res) {
     const { params: { providerName = null }, file = {} } = req;
     const { path = null } = file;
@@ -44,22 +52,47 @@ import carService from '../../services/car.js';
         });
     }
 
-    const [headers = []] = csvData;
-    let newData = [];
+    try {
+        const [headers = []] = csvData;
+        let newData = [];
+    
+        if (isEqual(headers, columns)) {
+            newData = csvData;
+        }
+    
+        else {
+            newData = parseData({ csvData, headers, columns });
+        }
+       
+        writeFile(newData);
 
-    if (isEqual(headers, columns)) {
-        newData = csvData;
+        await mongoose.connect(await uri, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+          });
+
+          // Create data model object from POST data
+          const vehicleData = new VehicleData({
+            vehicleData: csvData
+          });
+
+          vehicleData.save((err, result) => {
+            if (err) return res.status(400).send(err);
+            mongoose.disconnect();
+
+            res.status(200).json({
+                messsage: 'CSV successfully processed and stored!'
+            });
+
+            // remove temp csv file stored on server
+            // fs.unlink(req.file.path, () => {});
+            
+            console.log('Final Data', newData);
+          });
+
+    } catch (error) {
+        mongoose.disconnect();
+        return res.status(500).send("Server Error", err);
     }
-
-    else {
-        newData = parseData({ csvData, headers, columns });
-    }
-
-    writeFile(newData);
-    console.log('Final Data', newData);
-
-    res.status(200).json({
-        messsage: 'CSV successfully processed and stored!'
-    });
 
 }
